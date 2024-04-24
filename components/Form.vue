@@ -45,28 +45,33 @@
                 </div>
                 <a href="#">Забыли пароль?</a>
             </div>
-            <button
+            <Button
                 v-if="isRegistered"
                 @click="onLoginClick"
-                type="button"
                 class="form__action form-action"
             >
                 <span class="form-action__text">Войти</span>
-            </button>
-            <button
+            </Button>
+
+            <Button
                 v-else
                 @click="onRegistrationClick"
                 type="button"
                 class="form__action form-action"
             >
                 <span class="form-action__text">Зарегистрироваться</span>
-            </button>
+            </Button>
         </form>
     </div>
 </template>
 
 <script lang="ts">
+    import { Button } from 'ant-design-vue';
+
     export default {
+        components: {
+            Button,
+        },
         props: {
             isRegistered: {
                 type: Boolean,
@@ -76,6 +81,6 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @use "./styles/form/form";
 </style>
